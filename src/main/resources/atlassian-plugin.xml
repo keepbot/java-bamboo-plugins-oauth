@@ -12,33 +12,29 @@
     <!-- I18N Resources -->
     <resource type="i18n" name="i18n" location="oauth"/>
 
-    <xwork name="OAuth Login Actions" key="oauth-login-actions">
-        <package name="OauthAdmin" extends="admin" namespace="/admin/oauth">
-            <action name="OpenSettings" class="keepbot.bamboo.plugins.oauth.OpenSettings">
-				<result name="success" type="freemarker">/templates/settings.ftl</result>
-				<result name="error" type="freemarker">/templates/error.ftl</result>
-			</action>
-		</package>
-	</xwork>
-
     <!-- Web Resources -->
     <web-resource key="oauth-resources" name="OAuth Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         <resource type="download" name="oauth.css" location="/css/oauth.css"/>
         <resource type="download" name="oauth.js" location="/js/oauth.js"/>
         <resource type="download" name="images/" location="/images"/>
+        <resource type="download" name="templates/" location="/templates"/>
         <context>oauth</context>
     </web-resource>
 
     <!-- Configuration menu -->
+    <servlet key="oauth-settings-servlet" class="keepbot.bamboo.plugins.oauth.SettingsServlet">
+        <url-pattern>/oauth/settings</url-pattern>
+    </servlet>
+
     <web-section name="OAuth Web Section" key="oauth" location="system.admin" weight="100">
         <label key="OAuth" />
     </web-section>
 
-    <web-item name="OAuth Login Settings" i18n-name-key="settings.name" key="settings" section="system.admin/oauth" weight="1000">
-        <description key="settings.description">OAuth Login Settings</description>
-        <label key="settings.label"></label>
-        <link linkId="settings-link">/admin/oauth/OpenSettings.action</link>
+    <web-item name="OAuth Login Settings" i18n-name-key="oauth.settings.name" key="oauth.settings" section="system.admin/oauth" weight="1000">
+        <description key="oauth.settings.description">OAuth Login Settings</description>
+        <label key="oauth.settings.label">OAuth Login Settings</label>
+        <link linkId="oauth-settings-link">/plugins/servlet/oauth/settings</link>
     </web-item>
 
 </atlassian-plugin>

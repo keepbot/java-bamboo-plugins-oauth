@@ -2,11 +2,9 @@
 * text eol=lf
 *.vim eol=lf
 
+*.class binary
 *.gz binary
 *.ico binary
 *.jar binary
 *.jpg binary
 *.png binary
-
-
-

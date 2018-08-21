@@ -1,0 +1,21 @@
+##
+## Velocity template
+##
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="decorator" content="atl.admin"/>
+  <title>$i18n.getText("oauth.settings.label")</title>
+  $webResourceManager.requireResource("com.atlassian.auiplugin:ajs")
+  $webResourceManager.requireResource("keepbot.bamboo.plugins.oauth:resources")
+</head>
+<body>
+<h1>OAuth Login Settings</h1>
+
+THIS IS THE TEXT
+THIS IS THE TEXT
+THIS IS THE TEXT
+THIS IS THE TEXT
+THIS IS THE TEXT
+</body>
+</html>
